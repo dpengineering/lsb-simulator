@@ -25,6 +25,10 @@ body {
     cursor: pointer;
 }
 
+#upload-button:hover {
+    background-color: lightgrey;
+}
+
 /* Style for the point markers remains the same */
 .point {
     position: absolute;
