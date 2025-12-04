@@ -1,5 +1,5 @@
 // Get necessary elements from the HTML
-const fileInput = document.getElementById('image-upload');
+const fileInput = document.getElementById('file-input');
 const imageContainer = document.getElementById('image-container');
 const clickableImage = document.getElementById('clickable-image');
 const pointCounter = document.getElementById('point-counter');
@@ -54,6 +54,11 @@ imageContainer.addEventListener('click', (event) => {
         return;
     }
 
+    if(score >= 15) {
+        alert("Too Many Points. (>15)");
+        return;
+    }
+
     const x = event.offsetX;
     const y = event.offsetY;
 
@@ -62,6 +67,8 @@ imageContainer.addEventListener('click', (event) => {
     
     newPoint.style.left = `${x}px`;
     newPoint.style.top = `${y}px`;
+
+    newPoint.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
 
     imageContainer.appendChild(newPoint);
 
