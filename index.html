@@ -8,20 +8,18 @@
 </head>
 <body>
     <h1>Upload and Mark an Image!</h1>
-    
-    <div id="upload-section">
-        <label for="image-upload">Select an Image:</label>
-        <input type="file" id="image-upload" accept="image/*">
+
+    <div id="image-container">
+        <img id="clickable-image" src="https://media.istockphoto.com/id/1420676204/photo/portrait-of-a-royal-bengal-tiger-alert-and-staring-at-the-camera-national-animal-of-bangladesh.jpg?s=612x612&w=0&k=20&c=0OCYv99Ktv3fJ-YYlg7SetHBJj3pIk58WY7GDy5VCtI=" alt="Image to be uploaded by user." draggable="false">
     </div>
 
-    <hr>
-    
-    <div id="image-container">
-        <img id="clickable-image" src="" alt="Image to be uploaded by user.">
+    <div id="upload-section">
+        <input type="file" id="file-input" accept="image/*" style="display: none;">
+        <label for="file-input"><p id="upload-button">Select an Image</p></label>
     </div>
 
     <p>Points Added: <span id="point-counter">0</span></p>
 
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
