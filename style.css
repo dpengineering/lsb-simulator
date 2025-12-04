@@ -13,15 +13,16 @@ body {
     min-width: 400px; 
     min-height: 200px;
     background-color: #f0f0f0;
-    margin-top: 15px;
 }
 
 #clickable-image {
     display: block;
     width: 100%;
-    height: auto;
-    /* Hide the image element if it has no source */
-    visibility: hidden; 
+    height: auto; 
+}
+
+#upload-button {
+    cursor: pointer;
 }
 
 /* Style for the point markers remains the same */
