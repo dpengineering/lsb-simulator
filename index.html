@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LSB Photo Simulator</title>
+
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Set up the container for relative positioning */
+#image-container {
+    display: inline-block; /* Shrink container to fit the image */
+    position: relative; /* Crucial for positioning points absolutely inside */
+    cursor: crosshair; /* Indicate it's clickable */
+    border: 2px solid #333; /* For visual clarity */
+}
+
+#clickable-image {
+    display: block; /* Removes any extra space below the image */
+    width: 100%; /* Image fills its container */
+    height: auto;
+}
+
+/* Style for the point markers */
+.point {
+    position: absolute; /* Position relative to the container */
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%; /* Makes it a circle */
+    /* Center the circle on the exact click coordinates */
+    transform: translate(-50%, -50%); 
+    pointer-events: none; /* Allows clicks to go through to the image */
+}
+  </style>
+
+  
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Image</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Click the Image to Mark Points!</h1>
+    
+    <div id="image-container">
+        <img id="clickable-image" src="https://media.istockphoto.com/id/1420676204/photo/portrait-of-a-royal-bengal-tiger-alert-and-staring-at-the-camera-national-animal-of-bangladesh.jpg?s=612x612&w=0&k=20&c=0OCYv99Ktv3fJ-YYlg7SetHBJj3pIk58WY7GDy5VCtI=" alt="A static image">
+    </div>
+
+    <p>Points Added: <span id="point-counter">0</span></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+  <script>
+    // Get necessary elements from the HTML
+const imageContainer = document.getElementById('image-container');
+const pointCounter = document.getElementById('point-counter');
+
+// Initialize the score
+let score = 0;
+
+// Add an event listener to the image container
+imageContainer.addEventListener('click', (event) => {
+    // 1. Calculate the click position relative to the container
+    // event.offsetX and event.offsetY give the coordinates within the element that was clicked
+    const x = event.offsetX;
+    const y = event.offsetY;
+
+    // 2. Create a new point element
+    const newPoint = document.createElement('div');
+    newPoint.classList.add('point');
+    
+    // 3. Position the point using the calculated coordinates
+    // We use 'px' for CSS styling
+    newPoint.style.left = `${x}px`;
+    newPoint.style.top = `${y}px`;
+
+    // 4. Add the new point to the image container
+    imageContainer.appendChild(newPoint);
+
+    // 5. Update the score
+    score++;
+    pointCounter.textContent = score;
+
+    console.log(`Point added at: X=${x}, Y=${y}. Total points: ${score}`);
+});
+  </script>
+</body>
+</html>
